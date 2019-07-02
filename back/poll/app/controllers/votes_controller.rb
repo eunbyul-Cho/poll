@@ -4,7 +4,9 @@ class VotesController < ApplicationController
   end
   def show
     @vote = Vote.find(params[:id])
-    render json:@vote
+    @candidates = @vote.candidates
+    @voteInfo = {id:@vote.id,name:@vote.name,candidates:@candidates}
+    render json: @voteInfo
   end
 
   def votes_params
