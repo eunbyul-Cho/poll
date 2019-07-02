@@ -2,6 +2,8 @@ class VotesController < ApplicationController
   def index
     render json:  Vote.all
   end
+  def new
+  end
   def show
     @vote = Vote.find(params[:id])
     @candidates = @vote.candidates
