@@ -5,21 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-users = User.create([{ name: 'David' }, { name: 'Sally' },{name:'Jamie'}])
-votes = Vote.create([{ name: 'Color',user_id:1 }, { name: 'Movies',user_id:1 }, { name: 'Books',user_id:2 }])
-candidates = Candidate.create([{ name: 'Red',count:2,vote_id: 1},
-                              { name: 'Yellow',count:1 ,vote_id: 1},
-                              { name: 'blue',count:3,vote_id: 1},
-                              { name: "Toy Story4", count: 2, vote_id: 2},
-                              { name: "Aladdin", count: 5, vote_id:2 },
-                              {name: "Lord of the rings", count: 8, vote_id: 2},
-                              {name: "Circle", count: 1, vote_id: 3},
-                              {name: "Life of Pi", count: 1, vote_id: 3},
-                              {name: "MilkMan", count: 1, vote_id: 3},
+users = User.create([{ userId: 'david321',password:'1111' }, { userId: 'sallyF',password:'1111' },{userId:'jamie1206',password:'1111'}])
+polls = Poll.create([{ name: 'Color',user_id:1 }, { name: 'Movies',user_id:1 }, { name: 'Books',user_id:2 }])
+candidates = Candidate.create([{ name: 'Red',count:2,poll_id: 1},
+                              { name: 'Yellow',count:1 ,poll_id: 1},
+                              { name: 'blue',count:3,poll_id: 1},
+                              { name: "Toy Story4", count: 2, poll_id: 2},
+                              { name: "Aladdin", count: 5, poll_id:2 },
+                              {name: "Lord of the rings", count: 8, poll_id: 2},
+                              {name: "Circle", count: 1, poll_id: 3},
+                              {name: "Life of Pi", count: 1, poll_id: 3},
+                              {name: "MilkMan", count: 1, poll_id: 3},
                               ])
 david = User.first
 sally = User.second
 jamie = User.third
+
 blue = Candidate.find(3)
 yellow = Candidate.find(2)
 toystory = Candidate.find(4)

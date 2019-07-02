@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190702023115) do
+ActiveRecord::Schema.define(version: 20190702092710) do
 
   create_table "candidates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "name",       limit: 65535
     t.integer  "count"
-    t.integer  "vote_id"
+    t.integer  "poll_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.index ["vote_id"], name: "index_candidates_on_vote_id", using: :btree
+    t.index ["poll_id"], name: "index_candidates_on_poll_id", using: :btree
   end
 
   create_table "candidates_users", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -26,10 +26,19 @@ ActiveRecord::Schema.define(version: 20190702023115) do
     t.integer "candidate_id", null: false
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "polls", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "name",       limit: 65535
+    t.integer  "user_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.index ["user_id"], name: "index_polls_on_user_id", using: :btree
+  end
+
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "userId",     limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "password"
   end
 
   create_table "votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
