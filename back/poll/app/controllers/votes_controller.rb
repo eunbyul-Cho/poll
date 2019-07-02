@@ -11,7 +11,7 @@ class VotesController < ApplicationController
     Candidate.create([{name:params["choice1"],count:0,vote_id:@voteId},
     {name:params["choice2"],count:0,vote_id:@voteId},
     {name:params["choice3"],count:0,vote_id:@voteId}
-  ])
+    ])
     render json:@voteId
   end
 
@@ -24,7 +24,9 @@ class VotesController < ApplicationController
     @voteInfo = {id:@vote.id,name:@vote.name,candidates:@candidates}
     render json: @voteInfo
   end
+  def update
 
+  end
   def votes_params
     params.require(:votes).permit(:id, :name)
   end
