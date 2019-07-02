@@ -4,12 +4,14 @@ class UsersController < ApplicationController
     if !@currentUser
       render text:"NO USER"
     else
-    render json: @currentUser.votes
+    @candidates = @currentUser.candidates
+    # TODO render only poll_id
+    render json: @candidates
     end
   end
 
   def create
-    User.create(name:params[:name])
+    User.create(userId:params[:userId],password:params[:password])
     render text: params[:name]
     #redirect_to '/'
   end

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :votes
+  resources :polls
   resources :users do
-    get '/votes', to: "users#show"
+    get '/polls', to: "users#show"
   end
 end
