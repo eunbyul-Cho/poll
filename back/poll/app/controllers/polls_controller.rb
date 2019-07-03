@@ -4,7 +4,7 @@ class PollsController < ApplicationController
   end
   def create
     @pollName = params[:name]
-   Poll.create({ name: @pollName,user_id:3 })
+    Poll.create({ name: @pollName,user_id:3 })
     @pollId = Poll.find_by(name:@pollName).id
     @candidatesList = [params["choice1"],params["choice2"],params["choice3"]]
 
@@ -25,7 +25,8 @@ class PollsController < ApplicationController
 
   end
   def update
-
+    @user = User.find(1)
+    #render text: params[:<%=candidate.name %>]
   end
   def
     Polls_params
