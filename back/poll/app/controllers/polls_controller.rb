@@ -22,7 +22,7 @@ class PollsController < ApplicationController
     @poll =Poll.find(params[:id])
     @candidates = @poll.candidates
     @pollInfo = {id:@poll.id,name:@poll.name,candidates:@candidates}
-    render json: @pollInfo
+
   end
   def update
 

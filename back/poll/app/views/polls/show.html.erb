@@ -1,0 +1,14 @@
+
+<p>
+<strong>Title:</strong>
+<%= @poll.name %>
+</p>
+<p>
+<strong>Check:</strong>
+<div>
+<% @candidates.each do |candidate| %>
+  <p>
+  <input type="checkbox" name=  <%=candidate.name %> value=  <%=candidate.id %>>   <%=candidate.name %><br>
+  </p>
+<% end %>
+</div>

@@ -1,0 +1,6 @@
+<h1>Polls</h1>
+<% @polls.each do |poll| %>
+  <p>
+    <%= link_to poll.name, poll_path(poll) %>
+  </p>
+<% end %>
