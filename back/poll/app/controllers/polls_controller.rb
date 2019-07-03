@@ -26,10 +26,14 @@ class PollsController < ApplicationController
   end
   def update
     @user = User.find(1)
-    #render text: params[:<%=candidate.name %>]
+    @checkedCandidate = Candidate.find(params[:candidate_id])
+    @user.candidates << @checkedCandidate
+    redirect_to '/'
   end
-  def
-    Polls_params
+
+  def Polls_params
     params.require(:polls).permit(:id, :name)
   end
+
+
 end

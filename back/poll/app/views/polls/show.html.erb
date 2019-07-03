@@ -1,11 +1,11 @@
 
 
 <h1>Vote</h1>
-<%= form_tag(polls_path, method: :put)  do %>
+<%= form_tag(complete_tasks_path, method: :put)  do %>
   <% @candidates.each do |candidate| %>
     <ul>
       <li>
-        <%= check_box_tag 'candidate_id',candidate.id %>
+        <%= check_box_tag 'candidate_id[]',candidate.id %>
         <%= candidate.name %>
       </li>
     </ul>
