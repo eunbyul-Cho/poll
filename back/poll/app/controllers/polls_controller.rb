@@ -2,6 +2,7 @@ class PollsController < ApplicationController
   def index
     render json: Poll.all
   end
+
   def create
     @pollName = params[:name]
     Poll.create({ name: @pollName,user_id:3 })
@@ -18,12 +19,14 @@ class PollsController < ApplicationController
   def new
     render
   end
+
   def show
     @poll =Poll.find(params[:id])
     @candidates = @poll.candidates
     @pollInfo = {id:@poll.id,name:@poll.name,candidates:@candidates}
 
   end
+
   def update
     @user = User.find(4)
     @checkedCandidate = Candidate.find_by(id:params[:candidate_id])
@@ -36,6 +39,5 @@ class PollsController < ApplicationController
   def Polls_params
     params.require(:polls).permit(:id, :name)
   end
-
 
 end
