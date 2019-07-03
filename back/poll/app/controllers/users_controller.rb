@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @currentUser = User.find_by(id:params[:user_id])
+    @currentUser = User.find_by(id:params[:id])
     if !@currentUser
       render text:"NO USER"
     else

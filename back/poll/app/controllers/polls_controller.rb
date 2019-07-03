@@ -25,8 +25,10 @@ class PollsController < ApplicationController
 
   end
   def update
-    @user = User.find(1)
-    @checkedCandidate = Candidate.find(params[:candidate_id])
+    @user = User.find(4)
+    @checkedCandidate = Candidate.find_by(id:params[:candidate_id])
+    @counter = @checkedCandidate.count
+    @checkedCandidate.update(count:@counter+1)
     @user.candidates << @checkedCandidate
     redirect_to '/'
   end

@@ -1,7 +1,7 @@
 
 
 <h1>Vote</h1>
-<%= form_tag(complete_tasks_path, method: :put)  do %>
+<%= form_tag(vote_path, method: :put)  do %>
   <% @candidates.each do |candidate| %>
     <ul>
       <li>
