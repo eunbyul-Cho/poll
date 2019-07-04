@@ -27,6 +27,4 @@ class PollsController < ApplicationController
     @pollInfo = {id:@poll.id,name:@poll.name,candidates:@candidates}
   end
 
-
-
 end
