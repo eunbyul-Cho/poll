@@ -21,23 +21,12 @@ class PollsController < ApplicationController
   end
 
   def show
-    @poll =Poll.find(params[:id])
+    @poll_id = params[:id]
+    @poll = Poll.find(params[:id])
     @candidates = @poll.candidates
     @pollInfo = {id:@poll.id,name:@poll.name,candidates:@candidates}
-
   end
 
-  def update
-    @user = User.find(4)
-    @checkedCandidate = Candidate.find_by(id:params[:candidate_id])
-    @counter = @checkedCandidate.count
-    @checkedCandidate.update(count:@counter+1)
-    @user.candidates << @checkedCandidate
-    redirect_to '/'
-  end
 
-  def Polls_params
-    params.require(:polls).permit(:id, :name)
-  end
 
 end

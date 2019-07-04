@@ -1,0 +1,9 @@
+<% @candidates.each do |candidate| %>
+  <ul>
+    <li>
+      <%= check_box_tag 'candidate_id[]',candidate.id %>
+      <%= candidate.id %>
+      <%= candidate.name %>
+    </li>
+  </ul>
+<% end %>

@@ -1,14 +1,9 @@
 
 
 <h1>Vote</h1>
-<%= form_tag(vote_path, method: :put)  do %>
-  <% @candidates.each do |candidate| %>
-    <ul>
-      <li>
-        <%= check_box_tag 'candidate_id[]',candidate.id %>
-        <%= candidate.name %>
-      </li>
-    </ul>
-  <% end %>
+
+<%= form_tag(poll_vote_path(@poll_id), method: :put)  do %>
+  <%= render partial: "/candidates/candidate", locals: {candidate: @candidate} %>
   <%= submit_tag 'Mark as Complete' %>
 <% end %>
+
